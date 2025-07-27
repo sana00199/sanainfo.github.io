@@ -1,0 +1,429 @@
+/* --- Global Styles & Resets --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Define your consistent color palette */
+    --primary-color: #7A3F99; /* Deep Purple */
+    --secondary-color: #EFE4F7; /* Very Light Lavender (for backgrounds) */
+    --accent-color: #C53DDC; /* Bright Purple/Magenta */
+    --dark-text: #1a1a1a;
+    --light-text: #f0f0f0;
+    --background-light: #fdfdff; /* Near white */
+    --background-dark: #2c2c2c; /* Dark gray for contrast sections */
+    --border-color: #ddd;
+    --link-color: var(--primary-color);
+    --link-hover-color: var(--accent-color);
+    --card-bg-light: #ffffff;
+    --card-bg-dark: rgba(255,255,255,0.08); /* White with transparency for dark sections */
+    --documents-hero-gradient-start: #6A3A8A; /* A slightly darker primary for documents hero */
+    --documents-hero-gradient-end: #8A4FAD; /* A lighter primary for documents hero */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-text);
+    background-color: var(--background-light);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--dark-text);
+    line-height: 1.2;
+}
+/* Headings are light in dark sections */
+.content-section.dark-bg h1,
+.content-section.dark-bg h2,
+.content-section.dark-bg h3,
+.content-section.dark-bg h4 {
+    color: var(--light-text);
+}
+
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+ul li {
+    position: relative;
+    padding-left: 0;
+    margin-bottom: 8px;
+    font-size: 1.05em;
+}
+
+ul li::before {
+    content: "\2022";
+    color: var(--accent-color);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1.5em;
+    position: absolute;
+    left: 0;
+}
+
+p {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section-description {
+    font-size: 1.15em;
+    color: var(--dark-text);
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    line-height: 1.7;
+}
+.content-section.dark-bg .section-description {
+    color: rgba(255,255,255,0.9);
+}
+
+
+/* --- Header Styles (Common for all pages) --- */
+.main-header {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.main-header .site-title {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+
+.main-header .site-tagline {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+.main-nav ul {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.main-nav li {
+    margin: 0 15px;
+}
+
+.main-nav a {
+    color: var(--light-text);
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.main-nav a:hover,
+.main-nav a:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--light-text);
+    text-decoration: none;
+}
+
+/* --- Section Styles --- */
+.content-section {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.content-section:last-of-type {
+    border-bottom: none;
+}
+
+.content-section.light-bg {
+    background-color: var(--background-light);
+    color: var(--dark-text);
+}
+
+.content-section.dark-bg {
+    background-color: var(--background-dark);
+    color: var(--light-text);
+}
+
+.section-heading {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-heading::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--accent-color);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* --- Documents Hero Section (Specific to documents.html) --- */
+#documents-hero.hero-section {
+    background: linear-gradient(to right, var(--documents-hero-gradient-start), var(--documents-hero-gradient-end));
+    color: var(--light-text); /* Ensure text is light */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0;
+}
+
+#documents-hero .project-title { /* Using project-title as the main heading here */
+    color: var(--light-text);
+}
+#documents-hero .project-tagline { /* Using project-tagline as the sub-heading here */
+    color: var(--light-text);
+}
+
+/* Document Viewer (for embedding PDFs) */
+.document-viewer {
+    max-width: 800px; /* Max width for your PDF viewer */
+    height: 600px; /* Fixed height for the viewer */
+    margin: 40px auto; /* Center it and add vertical spacing */
+    border: 1px solid var(--border-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden; /* Ensures content stays within bounds */
+}
+
+.document-viewer iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Project Links / Call to Action (reused for download buttons) */
+.project-links {
+    text-align: center;
+    margin-top: 20px; /* Adjust spacing as needed after document viewer */
+    margin-bottom: 40px; /* Space before next section */
+}
+
+
+/* --- Key Links & Contact Section (Specific to documents.html) --- */
+#key-links-contact .contact-list {
+    text-align: center;
+    padding: 0;
+    margin-top: 30px;
+}
+
+#key-links-contact .contact-list li {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: var(--light-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#key-links-contact .contact-list li i {
+    margin-right: 15px;
+    color: var(--accent-color);
+    font-size: 1.5em;
+}
+
+#key-links-contact .contact-list li a {
+    color: var(--light-text);
+    font-weight: bold;
+}
+
+#key-links-contact .contact-list li a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+
+/* --- Footer Styles (Common for all pages) --- */
+.main-footer {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9em;
+    margin-top: 80px; /* Space from last section */
+}
+
+/* --- General Button & Link Styles (Common for all pages) --- */
+.button-link {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.button-link:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+    text-decoration: none;
+}
+
+.button-link i {
+    margin-right: 10px;
+}
+
+.button-link-small {
+    font-size: 0.9em;
+    padding: 10px 20px;
+    background-color: var(--background-dark);
+    color: var(--light-text);
+    border-radius: 20px;
+    box-shadow: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.button-link-small:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+.button-link-small i {
+    margin-right: 8px;
+}
+
+/* --- Responsive Design (Common for all pages) --- */
+@media (max-width: 992px) {
+    .section-heading, .section-heading-hero, #documents-hero .project-title {
+        font-size: 2.2em;
+    }
+    .profile-img {
+        width: 150px;
+        height: 150px;
+    }
+    /* Responsive iframe for documents */
+    .document-viewer {
+        height: 500px; /* Adjust height for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header .site-title {
+        font-size: 2em;
+    }
+    .main-nav li {
+        margin: 5px 10px;
+    }
+    .content-section {
+        padding: 50px 0;
+    }
+    .section-heading, .section-heading-hero, #documents-hero .project-title {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+    .project-title {
+        font-size: 2.5em;
+    }
+    .project-tagline {
+        font-size: 1.2em;
+    }
+    .project-main-screenshot {
+        max-width: 80%;
+    }
+    .project-hero-logo {
+        max-width: 180px;
+    }
+    p, .section-description {
+        font-size: 1em;
+    }
+    ul li {
+        font-size: 0.95em;
+    }
+    .projects-overview-cards, .projects-list-grid, .skills-grid, .problem-solution-grid, .tech-grid, .concept-list, .video-gallery, .challenge-learning-grid, .rationale-grid {
+        grid-template-columns: 1fr;
+    }
+    .tech-item, .problem-solution-item, .challenge-item, .concept-list li, .skill-category-item, .project-list-card, .rationale-item {
+        padding: 20px;
+    }
+    .button-link {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+    .button-link-small {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+    .contact-list li {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+    .contact-list li i {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-nav a {
+        font-size: 0.9em;
+        padding: 5px 8px;
+    }
+    .section-heading, .section-heading-hero, #documents-hero .project-title {
+        font-size: 1.5em;
+    }
+    .project-title {
+        font-size: 2em;
+    }
+    .project-tagline {
+        font-size: 1em;
+    }
+    .button-link {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    .button-link-small {
+        padding: 8px 15px;
+        font-size: 0.8em;
+    }
+    .document-viewer {
+        height: 300px;
+    }
+}
